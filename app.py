@@ -35,6 +35,11 @@ def login(name , password):
          print("------------------------------------")
 # The login function takes a username and password as input, queries the database to find a matching record, and prints a success message if the credentials are correct or an error message if they are not.
 def singup(new_name,new_pass):
+    if len(new_pass) < 8:
+        print("\n------------------------------------")
+        print("Password Must Be At Least 8 Characters")
+        print("------------------------------------\n")
+        return
     try:
         cursor.execute("INSERT INTO data (name ,pass) VALUES (?,?)",(new_name,new_pass))
         print("\n")
